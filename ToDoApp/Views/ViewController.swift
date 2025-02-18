@@ -17,17 +17,25 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var taskTableView: UITableView!
     
+    private var mainViewModel: MainViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        mainViewModel = MainViewModel.shared
         taskTableView.delegate = self
         taskTableView.dataSource = self
+        prioritySegmentControl.selectedSegmentIndex = 1
     }
 
     @IBAction func onPriorityChanged(_ sender: UISegmentedControl) {
+        
+        print("onPriorityChanged: \(sender.selectedSegmentIndex)")
+        
     }
     
     @IBAction func onSaveClicked(_ sender: UIButton) {
+        print("onSaveClicked")
     }
     
     
